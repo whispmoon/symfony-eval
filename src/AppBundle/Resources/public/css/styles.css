@@ -1,0 +1,21 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+form .control-label.required:after {
+    position: absolute;
+    right: 6px;
+    display: inline-block;
+    content: '*';
+    color: red;
+    font-weight: bold;
+}
+
+form .checkbox label.required:after {
+    margin-left: 6px;
+    display: inline-block;
+    content: '*';
+    color: red;
+    font-weight: bold;
+}
