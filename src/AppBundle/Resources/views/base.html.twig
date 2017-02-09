@@ -23,10 +23,11 @@
 
 <body>
 
-    <!-- Navbar -->
+    {% include 'AppBundle:Layout:navbar.html.twig' %}
 
-    <!-- Contenu -->
-
+    {% block body %}
+    {% endblock body %}
+    
     <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
 
 </body>

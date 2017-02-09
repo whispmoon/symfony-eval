@@ -1,1 +1,41 @@
-Homepage
+ {% extends 'AppBundle::base.html.twig' %}
+ 
+ {% block body %}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>SciPub</h1>
+        <p>La nouvelle plate-forme de publication pour scientiques !</p>
+        <p>
+            <!-- Lien vers la page publier -->
+            <a class="btn btn-lg btn-primary" href="{{ path('publication_new') }}" role="button">Publier &raquo;</a>
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- 3 dernières publication (par date de publication) -->
+ 
+{% for publication in publication_list %}
+    <div class="publication-thumb">
+        <h2><!-- titre -->{{ publication.title }}</h2>
+        <p>
+            Publié par <strong><!-- auteur -->{{ publication.author }}</strong>,
+            le <em><!-- date de publication -->{{ publication.publishedAt| date }}</em>.
+        </p>
+        <p>
+            <!-- description -->
+            {{ publication.content }}
+        </p>
+        <p>
+            <!-- Lien vers le détail de la publication -->
+            <a href="{{ path('publication_show',{'id': publication.id})  }}"
+               class="btn btn-sm btn-default">
+                Lire la publication
+            </a>
+        </p>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
